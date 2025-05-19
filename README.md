@@ -1,98 +1,170 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<div align="center">
+  <a href="http://nestjs.com/" target="_blank">
+    <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
+  </a>
+  <h1>Users API - NestJS</h1>
+  <p>
+    API robusta para la gestión de usuarios con autenticación JWT y autorización por roles.
+  </p>
+  <p>
+    <a href="https://www.npmjs.com/~nestjscore" target="_blank">
+      <img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" />
+    </a>
+    <a href="https://www.npmjs.com/~nestjscore" target="_blank">
+      <img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" />
+    </a>
+    <a href="https://github.com/GonzaloBisio/users-api-nestjs" target="_blank">
+      <img src="https://img.shields.io/badge/Repo-GitHub-success" alt="GitHub Repository" />
+    </a>
+  </p>
+</div>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 📋 Descripción
 
-## Description
+API de usuarios desarrollada con [NestJS](https://nestjs.com/). Brinda autenticación basada en JWT, autorización con control de roles, validación de datos y documentación generada con Swagger.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 Características
 
-## Project setup
+- 🔐 Autenticación JWT y refresh token
+- 🛡️ Autorización basada en roles (ADMIN, MODERATOR, SUPPORT, USER)
+- 🧾 CRUD de usuarios
+- ⚙️ Validación de datos con pipes
+- 📚 Documentación interactiva (Swagger)
+- 🔄 Módulo de refresco de tokens
+- 🧪 Soporte para testing unitario y e2e
+- 📦 Docker-ready
 
-```bash
-$ yarn install
-```
+## 📦 Requisitos Previos
 
-## Compile and run the project
+- Node.js v16+
+- npm o yarn
+- Git
 
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
-```
-
-## Run tests
+## ⚙️ Instalación y Puesta en Marcha
 
 ```bash
-# unit tests
-$ yarn run test
+# 1. Clonar el repositorio
+git clone https://github.com/GonzaloBisio/users-api-nestjs.git
+cd users-api-nestjs
 
-# e2e tests
-$ yarn run test:e2e
+# 2. Instalar dependencias
+npm install
+# o
+yarn install
 
-# test coverage
-$ yarn run test:cov
+# 3. Crear el archivo de variables de entorno
+cp .env.example .env
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Ejemplo de `.env`:
+```env
+PORT=3000
+JWT_SECRET=secretKeyExample
+JWT_EXPIRATION=1h
+REFRESH_SECRET=refreshSecretExample
+REFRESH_EXPIRATION=7d
+```
 
 ```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
+# 4. Ejecutar en modo desarrollo
+npm run start:dev
+
+# Producción
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Visita `http://localhost:3000/api/docs` para explorar la documentación Swagger.
 
-## Resources
+## 🧪 Testing
 
-Check out a few resources that may come in handy when working with NestJS:
+```bash
+# Pruebas unitarias
+npm run test
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-## Support
+## 🛡️ Autenticación y Roles
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Roles disponibles
 
-## Stay in touch
+| Rol       | Permisos                                             |
+|-----------|------------------------------------------------------|
+| ADMIN     | Acceso completo a todos los recursos                 |
+| MODERATOR | Lectura y actualización de usuarios                  |
+| SUPPORT   | Solo lectura                                          |
+| USER      | Acceso limitado a su propia información              |
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🔑 Usuario por defecto
 
-## License
+```bash
+email: admin@admin.com
+contraseña: admin123
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 📚 Endpoints Principales
+
+### 🔐 Autenticación
+
+**Iniciar sesión**
+como admin para consumir endpoints de la api
+
+```http
+POST /api/auth/login
+```
+```json
+{
+  "email": "admin@admin.com",
+  "password": "admin123"
+}
+```
+
+**Refresh token**
+```http
+POST /api/auth/refresh
+Authorization: Bearer <refresh_token>
+```
+
+### 👤 Usuarios
+
+**Crear usuario (solo ADMIN)**
+```http
+POST /api/users
+Authorization: Bearer <token_jwt>
+```
+
+**Obtener todos los usuarios**
+```http
+GET /api/users
+Authorization: Bearer <token_jwt>
+```
+
+**Obtener usuario por ID**
+```http
+GET /api/users/:id
+Authorization: Bearer <token_jwt>
+```
+
+**Actualizar usuario**
+```http
+PATCH /api/users/:id
+Authorization: Bearer <token_jwt>
+```
+
+**Eliminar usuario (solo ADMIN)**
+```http
+DELETE /api/users/:id
+Authorization: Bearer <token_jwt>
+```
+
+## 🐳 Uso con Docker
+
+```bash
+# Construcción de la imagen
+docker build -t users-api .
+
+# Ejecución
+docker run -p 3000:3000 users-api
+```
+
+---
+
